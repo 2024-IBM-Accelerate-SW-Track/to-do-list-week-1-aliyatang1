@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AddTodo from "../component/AddTodo.js";
 import Todos from "../component/todos.js";
+import RemoveTodo from "../component/RemoveTodo.js";
 import "./Home.css";
 
 class Home extends Component {
@@ -27,12 +28,26 @@ class Home extends Component {
       todos: new_list,
     });
   };
+  removeTodo = (todoId) => {
+    const updatedTodos = this.state.todos.filter((todo) => todo.id !== todoId);
+    this.setState({
+      todos: updatedTodos,
+    });
+  };
+
+  removeAllTodos = () => {
+    this.setState({
+      todos: [],
+    });
+  };
+
   render() {
     return (
       <div className="Home">
         <h1>Todo's </h1>
         <Todos todos={this.state.todos} />
         <AddTodo addTodo={this.addTodo} />
+        <RemoveTodo removeAllTodos={this.removeAllTodos} />
       </div>
     );
   }

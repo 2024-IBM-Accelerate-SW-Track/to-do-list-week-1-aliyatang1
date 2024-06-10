@@ -24,6 +24,10 @@ class AddTodo extends Component {
     handleSubmit = (event) => {
       event.preventDefault();
       if (this.state.content.trim()) {
+        const todo = {
+          id: Date.now(), // Unique identifier for each todo
+          content: this.state.content,
+        };
         this.props.addTodo(this.state);
         this.setState({
           content: "",

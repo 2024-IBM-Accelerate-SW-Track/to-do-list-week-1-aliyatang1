@@ -24,8 +24,9 @@ const Todos = ({ todos }) => {
           </Grid>
         );
       })
-    ) : (
-      <p>{"You have no todo's left"}</p>
+    ) : 
+    (
+      <p>{"You have no todos left"}</p>
     );
     // Lastly, return the todoList constant that we created above to show all of the items on the screen.
     return (
